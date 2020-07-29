@@ -5,42 +5,25 @@ import java.text.DecimalFormat;
 
 public class Circle extends Figure {
 
-    private final int x;
-    private final int y;
-    private final int size;
-    private final Color color;
-
-    public Circle(int x, int y, int size, Color color) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.color = color;
+    public Circle(int x, int y, int scale, Color color) {
+        super(x, y, scale, color);
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        setBounds(x, y, size + 1, size + 1);
-        g.setColor(color);
-        g.fillOval(0, 0, size, size);
-    }
-
-    public int getScale() {
-        return size;
-    }
-
-    @Override
-    public Color getColor() {
-        return color;
+        setBounds(getX(), getY(), getScale() + 1, getScale() + 1);
+        g.setColor(getColor());
+        g.fillOval(0, 0, getScale(), getScale());
     }
 
     @Override
     public double getArea() {
-        return Math.PI / 4 * Math.pow(size, 2);
+        return Math.PI / 4 * Math.pow(getScale(), 2);
     }
 
     public double getCircumference() {
-        return Math.PI * size;
+        return Math.PI * getScale();
     }
 
     @Override
@@ -48,7 +31,7 @@ public class Circle extends Figure {
         DecimalFormat decimalFormat = new DecimalFormat("0.0");
         return "Circle: " +
                 "S[" + decimalFormat.format(getArea()) + "px] " +
-                "RGB[" + color.getRGB() + "] " +
+                "RGB[" + getColor().getRGB() + "] " +
                 "Circumference[" + decimalFormat.format(getCircumference()) + "px]";
     }
 }

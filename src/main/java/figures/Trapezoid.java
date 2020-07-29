@@ -4,41 +4,22 @@ import java.awt.*;
 
 public class Trapezoid extends Figure {
 
-    private final int x;
-    private final int y;
-    private final int size;
-    private final Color color;
-
-    public Trapezoid(int x, int y, int size, Color color) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.color = color;
+    public Trapezoid(int x, int y, int scale, Color color) {
+        super(x, y, scale, color);
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-//        setBackground(Color.lightGray);
-        setBounds(x, y, 92 * size, 61 * size);
-        g.setColor(color);
+        setBounds(getX(), getY(), 92 * getScale(), 61 * getScale());
+        g.setColor(getColor());
         Polygon trapezoid = new Polygon();
-        trapezoid.addPoint(1 * size, 60 * size);   //+
-        trapezoid.addPoint(91 * size, 60 * size);
-        trapezoid.addPoint(71 * size, 0 * size);  //+
-        trapezoid.addPoint(21 * size, 0 * size);
+        trapezoid.addPoint(1 * getScale(), 60 * getScale());   //+
+        trapezoid.addPoint(91 * getScale(), 60 * getScale());
+        trapezoid.addPoint(71 * getScale(), 0 * getScale());  //+
+        trapezoid.addPoint(21 * getScale(), 0 * getScale());
 
         g.fillPolygon(trapezoid);
-    }
-
-    @Override
-    public int getScale() {
-        return 92 * size;
-    }
-
-    @Override
-    public Color getColor() {
-        return null;
     }
 
     @Override
@@ -50,6 +31,6 @@ public class Trapezoid extends Figure {
     public String toString() {
         return "Trapezoid: " +
                 "S[Здесь_должна_быть_площадь,_но_я_хочу_спать] " +
-                "RGB[" + color.getRGB() + "]";
+                "RGB[" + getColor().getRGB() + "]";
     }
 }

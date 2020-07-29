@@ -4,46 +4,20 @@ import java.awt.*;
 
 public class Triangle extends Figure {
 
-    private final int x;
-    private final int y;
-    private final int size;
-    private final Color color;
-
-    public Triangle(int x, int y, int size, Color color) {
-        this.x = x;
-        this.y = y;
-        this.size = size;
-        this.color = color;
+    public Triangle(int x, int y, int scale, Color color) {
+        super(x, y, scale, color);
     }
 
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        setBounds(x, y, 22 * size, 40 * size);
-        g.setColor(color);
+        setBounds(getX(), getY(), 22 * getScale(), 40 * getScale());
+        g.setColor(getColor());
         Polygon triangle = new Polygon();
-        triangle.addPoint(1 * size, 40 * size);
-        triangle.addPoint(22 * size, 40 * size);
-        triangle.addPoint(11 * size, 20);
+        triangle.addPoint(1 * getScale(), 40 * getScale());
+        triangle.addPoint(22 * getScale(), 40 * getScale());
+        triangle.addPoint(11 * getScale(), 20);
         g.fillPolygon(triangle);
-    }
-
-    public int getX() {
-        return x;
-    }
-
-    public int getY() {
-        return y;
-    }
-
-    @Override
-    public int getScale() {
-        return 22 * size;
-    }
-
-    @Override
-    public Color getColor() {
-        return color;
     }
 
     @Override
@@ -55,6 +29,6 @@ public class Triangle extends Figure {
     public String toString() {
         return "Triangle: " +
                 "S[Здесь_должна_быть_площадь,_но_я_хочу_спать] " +
-                "RGB[" + color.getRGB() + "]";
+                "RGB[" + getColor().getRGB() + "]";
     }
 }
