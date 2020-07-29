@@ -5,7 +5,7 @@ import java.awt.*;
 public class Triangle extends Figure {
 
     public Triangle(int x, int y, int scale, Color color) {
-        super(x, y, scale, color);
+        super(x, y, scale, color, "Треугольник");
     }
 
     @Override
@@ -23,12 +23,5 @@ public class Triangle extends Figure {
     @Override
     public double getArea() {
         return 0;
-    }
-
-    @Override
-    public String toString() {
-        return "Triangle: " +
-                "S[Здесь_должна_быть_площадь,_но_я_хочу_спать] " +
-                "RGB[" + getColor().getRGB() + "]";
     }
 }

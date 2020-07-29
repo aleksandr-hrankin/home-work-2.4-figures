@@ -5,7 +5,7 @@ import java.awt.*;
 public class Square extends Figure {
 
     public Square(int x, int y, int scale, Color color) {
-        super(x, y, scale, color);
+        super(x, y, scale, color, "Квадрат");
     }
 
     @Override
@@ -19,12 +19,5 @@ public class Square extends Figure {
     @Override
     public double getArea() {
         return Math.pow(getScale(), 2);
-    }
-
-    @Override
-    public String toString() {
-        return "Square: " +
-                "S[" + getArea() + "]px " +
-                "RGB[" + getColor().getRGB() + "]";
     }
 }

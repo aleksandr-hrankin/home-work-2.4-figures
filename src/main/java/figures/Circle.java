@@ -6,7 +6,7 @@ import java.text.DecimalFormat;
 public class Circle extends Figure {
 
     public Circle(int x, int y, int scale, Color color) {
-        super(x, y, scale, color);
+        super(x, y, scale, color, "Круг");
     }
 
     @Override
@@ -24,14 +24,5 @@ public class Circle extends Figure {
 
     public double getCircumference() {
         return Math.PI * getScale();
-    }
-
-    @Override
-    public String toString() {
-        DecimalFormat decimalFormat = new DecimalFormat("0.0");
-        return "Circle: " +
-                "S[" + decimalFormat.format(getArea()) + "px] " +
-                "RGB[" + getColor().getRGB() + "] " +
-                "Circumference[" + decimalFormat.format(getCircumference()) + "px]";
     }
 }

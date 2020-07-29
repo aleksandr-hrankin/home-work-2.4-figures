@@ -24,7 +24,7 @@ public class Information extends JPanel {
         setBounds(figure.getX(), figure.getY(), WIDTH_PANEL, HEIGHT_PANEL);
         g.setFont(new Font("Serif", Font.ITALIC, TEXT_SIZE));
         g.setColor(Color.BLACK);
-        String[] messages = figure.toString().split(" ");
+        String[] messages = figure.toString().split(",");
         int lineJump = TEXT_POSITION_Y;
         for (String s : messages) {
             g.drawString(s, figure.getScale(),  lineJump);

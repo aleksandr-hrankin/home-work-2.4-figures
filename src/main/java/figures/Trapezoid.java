@@ -5,7 +5,7 @@ import java.awt.*;
 public class Trapezoid extends Figure {
 
     public Trapezoid(int x, int y, int scale, Color color) {
-        super(x, y, scale, color);
+        super(x, y, scale, color, "трапеция");
     }
 
     @Override
@@ -25,12 +25,5 @@ public class Trapezoid extends Figure {
     @Override
     public double getArea() {
         return 0;
-    }
-
-    @Override
-    public String toString() {
-        return "Trapezoid: " +
-                "S[Здесь_должна_быть_площадь,_но_я_хочу_спать] " +
-                "RGB[" + getColor().getRGB() + "]";
     }
 }
